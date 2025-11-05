@@ -51,20 +51,20 @@
             --transition-smooth: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Light Mode - Modern Professional */
+        /* Light Mode - Flowing & Spacious */
         [data-theme="light"] {
-            --bg-primary: #f8f9fc;
-            --bg-secondary: #ffffff;
-            --color-primary: #6366f1;
+            --bg-primary: #f7f9fb;
+            --bg-secondary: rgba(255, 255, 255, 0.6);
+            --color-primary: #3b82f6;
             --color-secondary: #8b5cf6;
-            --color-accent: #0ea5e9;
+            --color-accent: #06b6d4;
             --color-text: #1e293b;
             --color-text-dim: #64748b;
-            --color-border: #6366f1;
-            --color-shadow: rgba(99, 102, 241, 0.15);
+            --color-border: rgba(59, 130, 246, 0.1);
+            --color-shadow: rgba(0, 0, 0, 0.03);
 
-            --gradient-start: #f8f9fc;
-            --gradient-end: #e0e7ff;
+            --gradient-start: #f7f9fb;
+            --gradient-end: #eff6ff;
         }
 
         /* ========================================
@@ -91,57 +91,24 @@
             position: relative;
         }
 
-        /* Light mode body styling */
+        /* Light mode body styling - Flowing & Spacious */
         [data-theme="light"] body {
             font-family: var(--font-sans);
-            background: linear-gradient(135deg, #f8f9fc 0%, #e0e7ff 50%, #f0f4ff 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
+            background: linear-gradient(180deg, #f7f9fb 0%, #eff6ff 50%, #f7f9fb 100%);
+            line-height: 1.8;
         }
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Subtle floating orbs in light mode */
+        /* Subtle ambient light effect */
         [data-theme="light"] body::before {
             content: '';
             position: fixed;
-            top: -50%;
-            left: -50%;
-            right: -50%;
-            bottom: -50%;
-            width: 200%;
-            height: 200%;
+            top: -10%;
+            left: -10%;
+            right: -10%;
+            bottom: -10%;
             background:
-                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.08) 0%, transparent 25%),
-                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.06) 0%, transparent 25%),
-                radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.05) 0%, transparent 30%);
-            animation: floatOrbs 20s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        @keyframes floatOrbs {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, -30px) rotate(120deg); }
-            66% { transform: translate(-20px, 20px) rotate(240deg); }
-        }
-
-        /* Subtle grid overlay in light mode */
-        [data-theme="light"] body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image:
-                linear-gradient(rgba(99, 102, 241, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.02) 1px, transparent 1px);
-            background-size: 50px 50px;
+                radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
             pointer-events: none;
             z-index: 0;
         }
@@ -208,9 +175,10 @@
         }
 
         [data-theme="light"] .navbar {
-            background-color: rgba(250, 249, 246, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom-width: 1px;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.02);
         }
 
         .navbar-brand {
@@ -502,6 +470,10 @@
             position: relative;
         }
 
+        [data-theme="light"] section {
+            padding: 5rem 2rem;
+        }
+
         .section-title {
             font-family: var(--font-pixel);
             font-size: clamp(1.2rem, 4vw, 2rem);
@@ -532,7 +504,10 @@
 
         [data-theme="light"] .section-title::after {
             box-shadow: none;
-            border-radius: 2px;
+            border-radius: 4px;
+            height: 3px;
+            width: 60px;
+            opacity: 0.3;
         }
 
         /* ========================================
@@ -558,9 +533,12 @@
 
         [data-theme="light"] .about-text p {
             font-family: var(--font-sans);
-            border-radius: 12px;
-            border-width: 1px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            border: none;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+            padding: 2.5rem;
         }
 
         /* Expandable about section */
@@ -657,8 +635,10 @@
             font-family: var(--font-sans);
             font-weight: 600;
             text-transform: capitalize;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            border: none;
+            box-shadow: 0 2px 15px rgba(59, 130, 246, 0.2);
+            padding: 0.875rem 2rem;
         }
 
         .learn-more-btn:hover {
@@ -669,7 +649,7 @@
 
         [data-theme="light"] .learn-more-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
         }
 
         .skills-container {
@@ -687,9 +667,12 @@
         }
 
         [data-theme="light"] .skill-item {
-            border-radius: 12px;
-            border-width: 1px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            border: none;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+            padding: 2rem;
         }
 
         .skill-item:hover {
@@ -698,7 +681,8 @@
         }
 
         [data-theme="light"] .skill-item:hover {
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
         }
 
         .skill-name {
@@ -726,7 +710,8 @@
 
         [data-theme="light"] .skill-bar {
             border-radius: 10px;
-            border-width: 1px;
+            border: none;
+            background: rgba(59, 130, 246, 0.08);
         }
 
         .skill-progress {
@@ -738,6 +723,7 @@
 
         [data-theme="light"] .skill-progress {
             box-shadow: none;
+            border-radius: 10px;
         }
 
         /* ========================================
@@ -786,9 +772,12 @@
         }
 
         [data-theme="light"] .timeline-content {
-            border-radius: 12px;
-            border-width: 1px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            border: none;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+            padding: 2rem;
         }
 
         .timeline-content:hover {
@@ -797,7 +786,8 @@
         }
 
         [data-theme="light"] .timeline-content:hover {
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+            transform: scale(1.02);
         }
 
         .timeline-year {
@@ -899,9 +889,12 @@
         }
 
         [data-theme="light"] .blog-card {
-            border-radius: 12px;
-            border-width: 1px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            border: none;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+            padding: 2rem;
         }
 
         .blog-card:hover {
@@ -911,7 +904,8 @@
         }
 
         [data-theme="light"] .blog-card:hover {
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
         }
 
         .blog-date {
@@ -969,7 +963,11 @@
             font-family: var(--font-sans);
             text-transform: capitalize;
             font-weight: 600;
-            border-radius: 6px;
+            border-radius: 8px;
+            border: none;
+            font-size: 0.9rem;
+            padding: 0.625rem 1.5rem;
+            box-shadow: 0 2px 10px rgba(59, 130, 246, 0.2);
         }
 
         .blog-button:hover {
@@ -980,7 +978,7 @@
 
         [data-theme="light"] .blog-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
         }
 
         /* ========================================
